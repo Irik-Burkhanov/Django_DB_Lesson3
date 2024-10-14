@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Computer(models.Model):
     title = models.CharField(verbose_name='Название', max_length=50)
-    build_date = models.DateTimeField(verbose_name='Дата сборки', auto_now_add=True)
+    build_date = models.DateTimeField(verbose_name='Дата сборки', auto_now_add=True, blank=True)
     description = models.TextField(verbose_name='Описание', blank=True)
 
     id_pc = models.IntegerField(verbose_name='Номер ПК', unique=True)
@@ -23,7 +23,7 @@ class Builder(models.Model):
     first_name = models.CharField(verbose_name='Имя', max_length=100)
     surname = models.CharField(verbose_name='Фамилия', max_length=100)
     patronymic = models.CharField(verbose_name='Отчество', max_length=100)
-    builders = (('Начинаюйщи', 'Начинаюйщи'),('Опытный', 'Опытный'),('Называй меня - мастер', 'Называй меня - мастер'))
+    builders = (('Начинающий', 'Начинающий'),('Опытный', 'Опытный'),('Называй меня - мастер', 'Называй меня - мастер'))
     level_of_competence = models.CharField(verbose_name='Звание', max_length=100, choices=builders, default="")
 
     class Meta:
