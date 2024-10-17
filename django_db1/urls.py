@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from computer_hardware_store import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
+    path('computers_list/', views.ComputersList.as_view(), name='computers_list'),
+    path('computer/<int:pk>/', views.ComputersDetail.as_view(), name='computer_detail'),
+    path('computer/<int:pk>/update/', views.ComputersUpdate.as_view(), name='computer_update'),
+    path('computer_create/', views.ComputersCreate.as_view(), name='computer_create'),
+    path('computer/<int:pk>/delete/', views.ComputersDelete.as_view(), name='computer_delete'),
+#    path('computers_list_template_view/', views.ComputersListTemplateView.as_view(), name='computers_list_template_view'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

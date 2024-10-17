@@ -32,7 +32,7 @@ class Builder(models.Model):
         ordering = ['first_name']
 
     def __str__(self):
-        return f'{self.first_name}, {self.surname}, {self.patronymic}'
+        return f'{self.first_name} {self.surname} {self.patronymic}'
 
 class CPU(models.Model):
     CPU_model = models.CharField(verbose_name='Процессор', max_length=50)

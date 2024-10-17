@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+{% block title %} Компьютеры {% endblock %}
+{% block content %}
+<h1>Компьютеры:</h1>
+<div class="row">
+  {% for computer in computers %}
+  <div class="col-md-4 mt-4">
+    <div class="card h-100">
+      <div class="card-img-container">
+        <img src="{{ computer.cover.url }}" class="card-img-top img-fluid" alt="Computer Cover">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ computer.title }}</h5>
+        <p class="card-text">{{ computer.builder }}</p>
+        <a href="{% url 'computer_detail' computer.pk %}" class="btn btn-primary">Детали</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <a href="{% url 'computer_create' %}" class="btn btn-primary">Добавить</a>
+</div>
+{% endblock %}
