@@ -7,7 +7,8 @@ from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView
 from computer_hardware_store.models import Computer
-
+from django_filters.views import FilterView
+from computer_hardware_store import filters
 
 # class ComputersListTemplateView(TemplateView):
 #     template_name = 'computer_workshop/computers_list.html'
@@ -17,10 +18,11 @@ from computer_hardware_store.models import Computer
 #         context['computers'] = Computer.objects.all()
 #         return context
 
-class ComputersList(ListView):
+class ComputersList(FilterView):
     template_name = 'computer_workshop/computers_list.html'
     model = Computer
     context_object_name = 'computers'
+    filterset_class = filters.Computer
 
 class ComputersDetail(DetailView):
     template_name = 'computer_workshop/computer_detail.html'

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'computer_hardware_store',
     'bootstrap5',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
