@@ -32,3 +32,11 @@
 
 Пункт 5.
 ![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный13.png)
+
+
+6 урок--фильтры.
+![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный17.png)
+
+![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный18.png)
+
+![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный19.png)
