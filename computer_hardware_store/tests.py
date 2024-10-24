@@ -25,17 +25,23 @@ class ComputerShelfTestCase(TestCase):
         old_title = self.computer.title
         response = self.client.post(url, {'title': 'new_title'})
         self.computer.refresh_from_db()
-
+        #print(response.content)
         #self.assertEqual(response.status_code, 302)
         self.assertNotEqual(self.computer.title, old_title)
-        print(models.Computer.objects.all())
         self.computer.refresh_from_db()
         print(models.Computer.objects.all())
 
-    #def test_delete_computer(self):
-     #   url = reverse('computer_delete', kwargs={'pk': self.computer.pk})
-      #  old_computer_count = models.Computer.objects.count()
-       # response = self.client.delete(url)
-        #self.assertEqual(response.status_code, 302)
-        #self.assertGreater(old_computer_count, models.Computer.objects.count())
-        #print(old_computer_count, models.Computer.objects.count())
+    def test_delete_computer(self):
+        url = reverse('computer_delete', kwargs={'pk': self.computer.pk})
+        old_computer_count = models.Computer.objects.count()
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertGreater(old_computer_count, models.Computer.objects.count())
+        print(old_computer_count, models.Computer.objects.count())
+
+    def test_create_computer(self):
+        url = reverse('computer_create')
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 200)
+        print(models.Computer.objects.count())
+        print(models.Computer.objects.all())
