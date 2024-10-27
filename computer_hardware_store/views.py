@@ -6,9 +6,13 @@ from django.shortcuts import render
 from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView
-from computer_hardware_store.models import Computer
+from computer_hardware_store.models import Computer, Builder
 from django_filters.views import FilterView
-from computer_hardware_store import filters
+from computer_hardware_store import filters, serializers
+from rest_framework import viewsets
+
+from computer_hardware_store.serializers import BuilderSerializers, ComputerSerializers
+
 
 # class ComputersListTemplateView(TemplateView):
 #     template_name = 'computer_workshop/computers_list.html'
@@ -17,6 +21,14 @@ from computer_hardware_store import filters
 #         context = super().get_context_data(**kwargs)
 #         context['computers'] = Computer.objects.all()
 #         return context
+
+class BuilderAPI(viewsets.ModelViewSet):
+    queryset = Builder.objects.all()
+    serializer_class = serializers.BuilderSerializers
+
+class ComputerAPI(viewsets.ModelViewSet):
+    queryset = Computer.objects.all()
+    serializer_class = serializers.ComputerSerializers
 
 class ComputersList(FilterView):
     template_name = 'computer_workshop/computers_list.html'

@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'computer_hardware_store',
     'bootstrap5',
     'django_filters',
+    'rest_framework',
+    'drf_spectacular',
 ]
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema', }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
