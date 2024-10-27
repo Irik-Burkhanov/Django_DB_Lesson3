@@ -44,3 +44,9 @@
 
 7 урок.
 ![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный20.png)
+
+
+8 урок.
+![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный21.png)
+
+![Screnshot](https://github.com/Irik-Burkhanov/Django_DB_Lesson3/blob/master/Безымянный22.png)
